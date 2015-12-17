@@ -35,14 +35,22 @@
         <!-- Ring volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="ring_volume"
-                android:icon="@*android:drawable/ic_audio_ring_notif"
-                android:title="@string/ring_volume_option_title" />
+                android:icon="@drawable/ic_audio_ring"
+                android:title="@string/ring_notification_volume_option_title" />
 
         <!-- Notification volume -->
         <com.android.settings.notification.VolumeSeekBarPreference
                 android:key="notification_volume"
-                android:icon="@*android:drawable/ic_audio_ring_notif"
-                android:title="@string/notification_volume_option_title" />
+                android:icon="@*android:drawable/ic_audio_notification_new"
+		android:title="@string/notification_volume_option_title" />
+
+
+        <!-- Link ringtone and notification volumes -->
+        <SwitchPreference
+                android:key="volume_link_notification"
+                android:title="@string/link_volume_option_title"
+		android:persistent = "false"
+                android:defaultValue="true" />
 
         <!-- Also vibrate for calls -->
         <SwitchPreference
@@ -54,6 +62,13 @@
                 android:key="volbtn_music_controls"
                 android:title="@string/volbtn_music_controls_title"
                 android:summary="@string/volbtn_music_controls_summary" />
+
+	<SwitchPreference
+                android:key="safe_headset_volume"
+                android:title="@string/safe_headset_volume_title"
+                android:summary="@string/safe_headset_volume_summary"
+                android:persistent="false"
+                android:defaultValue="true" />
 
         <!-- Interruptions -->
         <com.android.settingslib.RestrictedPreference
@@ -95,12 +110,6 @@
                         android:targetClass="com.android.cellbroadcastreceiver.CellBroadcastSettings" /-->
         </com.android.settingslib.RestrictedPreference>
 
-	<SwitchPreference
-                android:key="safe_headset_volume"
-                android:title="@string/safe_headset_volume_title"
-                android:summary="@string/safe_headset_volume_summary"
-                android:persistent="false"
-                android:defaultValue="true" />
 
         <!-- Other sounds -->
         <Preference
