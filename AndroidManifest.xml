@@ -130,8 +130,16 @@
 
         <activity android:name=".Settings$WirelessSettings"
             android:label="@string/header_category_wireless_networks">
-            <intent-filter android:priority="4">
+            <intent-filter android:priority="5">
                 <action android:name="com.android.settings.category.wireless" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+		<activity android:name=".Settings$CustomSettings"
+            android:label="@string/header_category_custom">
+            <intent-filter android:priority="4">
+                <action android:name="com.android.settings.category.custom" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -1017,6 +1025,112 @@
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
         </activity>
+        
+        <!-- Customization category -->
+        <activity android:name="Settings$StatusbarClockActivity"
+                android:label="@string/custom_settings_title"
+                android:icon="@drawable/ic_statusbarclock"
+                android:taskAffinity=""
+                android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.CUSTOM_SETTINGS" />
+                <action android:name="android.settings.CUSTOM_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="7">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.custom" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.custom.StatusbarClock" />
+            <meta-data android:name="com.android.settings.summary"
+                       android:resource="@string/gestures_settings_summary" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+       
+        <activity android:name="Settings$GesturesSettingsActivity"
+                android:label="@string/gestures_settings_title"
+                android:icon="@drawable/ic_settings_offscreen_gestures"
+                android:taskAffinity=""
+                android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.GESTURES_SETTINGS" />
+                <action android:name="android.settings.GESTURES_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="7">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.custom" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.GesturesSettings" />
+            <meta-data android:name="com.android.settings.summary"
+                       android:resource="@string/gestures_settings_summary" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+        
+        <activity-alias android:name="GesturesSettings"
+                android:label="@string/gestures_settings_title"
+                android:exported="true"
+                android:targetActivity="Settings$GesturesSettingsActivity">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.GesturesSettings" />
+        </activity-alias>
+        
+        <activity android:name="Settings$ButtonsSettingsActivity"
+                android:label="@string/buttons_pref_title"
+                android:icon="@drawable/ic_settings_buttons"
+                android:taskAffinity=""
+                android:exported="true">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.BUTTONS_SETTINGS" />
+                <action android:name="android.settings.BUTTONS_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="7">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                       android:value="com.android.settings.category.custom" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.ButtonsSettings" />
+            <meta-data android:name="com.android.settings.summary"
+                       android:resource="@string/buttons_pref_summary" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+        
+        <activity-alias android:name="ButtonsSettings"
+                android:label="@string/buttons_pref_title"
+                android:exported="true"
+                android:targetActivity="Settings$ButtonsSettingsActivity">
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.ButtonsSettings" />
+        </activity-alias>
+        
+        <!-- End customizations category -->
 
         <activity android:name="Settings$DisplaySettingsActivity"
                 android:label="@string/display_settings"
@@ -1043,45 +1157,6 @@
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
         </activity>
-
-        <!-- Gestures settings activity -->
-        <activity android:name="Settings$GesturesSettingsActivity"
-                android:label="@string/gestures_settings_title"
-                android:icon="@drawable/ic_settings_offscreen_gestures"
-                android:taskAffinity=""
-                android:exported="true">
-            <intent-filter android:priority="1">
-                <action android:name="com.android.settings.GESTURES_SETTINGS" />
-                <action android:name="android.settings.GESTURES_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.VOICE_LAUNCH" />
-                <category android:name="com.android.settings.SHORTCUT" />
-            </intent-filter>
-            <intent-filter android:priority="7">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.device" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.GesturesSettings" />
-            <meta-data android:name="com.android.settings.summary"
-                       android:resource="@string/gestures_settings_summary" />
-            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
-                android:value="true" />
-        </activity>
-
-        <!-- Keep compatibility with old shortcuts. -->
-        <activity-alias android:name="GesturesSettings"
-                android:label="@string/gestures_settings_title"
-                android:exported="true"
-                android:targetActivity="Settings$GesturesSettingsActivity">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.GesturesSettings" />
-        </activity-alias>
 
         <!-- Keep compatibility with old shortcuts. -->
         <activity-alias android:name="DisplaySettings"
@@ -3201,60 +3276,6 @@
             <meta-data android:name="com.android.settings.summary"
                        android:resource="@string/gesture_preference_summary" />
         </activity>
-      
-        <!-- Buttons settings activity -->
-        <activity android:name="Settings$ButtonsSettingsActivity"
-                android:label="@string/buttons_pref_title"
-                android:icon="@drawable/ic_settings_buttons"
-                android:taskAffinity=""
-                android:exported="true">
-            <intent-filter android:priority="1">
-                <action android:name="com.android.settings.BUTTONS_SETTINGS" />
-                <action android:name="android.settings.BUTTONS_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.VOICE_LAUNCH" />
-                <category android:name="com.android.settings.SHORTCUT" />
-            </intent-filter>
-            <intent-filter android:priority="7">
-                <action android:name="com.android.settings.action.SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.device" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.ButtonsSettings" />
-            <meta-data android:name="com.android.settings.summary"
-                       android:resource="@string/buttons_pref_summary" />
-            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
-                android:value="true" />
-        </activity>
-
-        <activity android:name="Settings$PieSettingsActivity"
-                android:label="@string/pie_settings"
-                android:taskAffinity=""
-                android:exported="true">
-            <intent-filter android:priority="1">
-                <action android:name="com.android.settings.PIE_SETTINGS" />
-                <action android:name="android.settings.PIE_SETTINGS" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.device" />
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.PieSettings" />
-        </activity>
-
-        <!-- Keep compatibility with old shortcuts. -->
-        <activity-alias android:name="ButtonsSettings"
-                android:label="@string/buttons_pref_title"
-                android:exported="true"
-                android:targetActivity="Settings$ButtonsSettingsActivity">
-            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                android:value="com.android.settings.ButtonsSettings" />
-        </activity-alias>
 
         <activity android:name="BackupSettingsActivity"
                   android:label="@string/privacy_settings_title"

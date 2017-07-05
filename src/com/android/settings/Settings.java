@@ -163,6 +163,7 @@ public class Settings extends SettingsActivity {
 
     // Categories.
     public static class WirelessSettings extends SettingsActivity { /* empty */ }
+	public static class CustomSettings extends SettingsActivity { /* empty */ }
     public static class DeviceSettings extends SettingsActivity { /* empty */ }
     public static class PersonalSettings extends SettingsActivity { /* empty */ }
     public static class SystemSettings extends SettingsActivity { /* empty */ }
@@ -171,4 +172,7 @@ public class Settings extends SettingsActivity {
     public static class ButtonsSettingsActivity extends SettingsActivity { /* empty */ }
     public static class GesturesSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PieSettingsActivity extends SettingsActivity { /* empty */ }
+    
+    // Extensions
+    public static class StatusbarClockActivity extends SettingsActivity { /* empty */ }
 }

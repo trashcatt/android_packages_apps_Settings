@@ -143,6 +143,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settingslib.drawer.DashboardCategory;
 import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
+import com.android.settings.custom.StatusbarClock;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -265,9 +266,11 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.SimSettingsActivity.class.getName(),
             Settings.Lte4GEnableActivity.class.getName(),
             Settings.WirelessSettingsActivity.class.getName(),
-            //device_section
+            //custom section
+            Settings.StatusbarClockActivity.class.getName(),
             Settings.ButtonsSettingsActivity.class.getName(),
             Settings.GesturesSettingsActivity.class.getName(),
+            //device_section
             Settings.HomeSettingsActivity.class.getName(),
             Settings.SoundSettingsActivity.class.getName(),
             Settings.DisplaySettingsActivity.class.getName(),
@@ -393,7 +396,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             AutomaticStorageManagerSettings.class.getName(),
             ButtonsSettings.class.getName(),
             GesturesSettings.class.getName(),
-            PieSettings.class.getName()
+            PieSettings.class.getName(),
+            StatusbarClock.class.getName()
     };
 
     private static final String[] LIKE_SHORTCUT_INTENT_ACTION_ARRAY = {
