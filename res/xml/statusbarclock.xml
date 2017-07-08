@@ -53,7 +53,7 @@
             android:entryValues="@array/clock_date_style_values"
             android:dependency="status_bar_show_clock" />
 
-	<ListPreference
+		<ListPreference
             android:key="clock_date_position"
             android:title="@string/clock_date_position"
             android:entries="@array/clock_date_position_entries"

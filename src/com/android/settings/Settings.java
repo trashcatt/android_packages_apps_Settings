@@ -175,4 +175,6 @@ public class Settings extends SettingsActivity {
     
     // Extensions
     public static class StatusbarClockActivity extends SettingsActivity { /* empty */ }
+    public static class TrafficActivity extends SettingsActivity { /* empty */ }
+    public static class BlurActivity extends SettingsActivity { /* empty */ }
 }

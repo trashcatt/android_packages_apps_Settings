@@ -16,9 +16,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 	<!-- Custom category Name -->
 	<string name="header_category_custom">Customizations</string>
-	<string name="custom_settings_title">Status Bar</string>
+	
+	<string name="statusbar_settings_title">Status Bar</string>
+	<string name="blur_settings_title">Blur</string>
+	<string name="traffic_settings_title">Network Traffic</string>
 	
 	<string name="status_bar_category">Status bar</string>
+	<string name="traffic_category">Traffic indicators</string>
 	
 	<!-- Statusbar Clock options -->
     <string name="status_bar_title">Status bar</string>
@@ -58,4 +62,73 @@
     <string name="clock_date_format_custom">Custom java format</string>
     <string name="default_string">Default</string>
     <string name="reset">Reset</string>
+    
+    <!-- Network traffic -->
+    <string name="network_traffic_title">Network traffic</string>
+    <string name="show_network_traffic_state">Status bar traffic monitor</string>
+    <string name="show_network_traffic_unit">Display unit</string>
+    <string name="show_network_traffic_frequency">Update interval</string>
+    <string name="show_network_traffic_disable">Disabled</string>
+    <string name="show_network_traffic_up">Outgoing</string>
+    <string name="show_network_traffic_down">Incoming</string>
+    <string name="show_network_traffic_all">Outgoing and incoming</string>
+    <string name="show_network_traffic_bit">Bits per second</string>
+    <string name="show_network_traffic_byte">Bytes per second</string>
+    <string name="show_network_traffic_500">500 ms</string>
+    <string name="show_network_traffic_1000">1000 ms</string>
+    <string name="show_network_traffic_1500">1500 ms</string>
+    <string name="show_network_traffic_2000">2000 ms</string>
+    <string name="network_traffic_autohide">Auto hide</string>
+    <string name="network_traffic_autohide_summary">Hide the traffic monitor when there is no activity</string>
+    <string name="network_traffic_autohide_threshold">Inactivity threshold</string>
+    <string name="network_traffic_hidearrow">Hide arrows</string>
+    <string name="network_traffic_hidearrow_summary">Hide the arrows in the traffic indicators</string>
+    
+    <!-- Blur -->
+    <string name="blur_title">Blur</string>
+    <string name="settings_blur_cat">Blur</string>
+    <string name="blurred_status_bar_expanded_enabled_pref">Blur StatusBar Background</string>
+    <string name="blurred_status_bar_expanded_enabled_pref_summary">Blur the background when you pull down the status bar</string>
+    <string name="translucent_notifications_pref">Translucent Notifications</string>
+    <string name="translucent_notifications_pref_summary">Set the background of notifications translucent</string>
+    <string name="translucent_quick_settings_pref">Blurred Expanded StatusBar</string>
+    <string name="translucent_quick_settings_pref_summary">Blur the background of expanded status bar </string>
+    <string name="transluency_level_universal">Translucency level</string>
+    <string name="blurred_recent_app_enabled_pref">Blurred Recent Apps</string>
+    <string name="blurred_recent_app_enabled_pref_summary">Blur the background of Recent Apps activity</string>
+
+    <string name="blur_light_color">Light image color filter</string>
+    <string name="blur_dark_color">Dark image color filter</string>
+    <string name="blur_mixed_color">Mixed image color filter</string>
+
+    <string name="blur_notice">About Blur...</string>
+    <string name="blur_notice_summary">Blur personlizations are disabled during Keyguard view! Only Translucent Notifications are enabled!</string>
+    <string name="blur_colors_notice">What are these colors doing?</string>
+    <string name="blur_colors_notice_summary">These colors are the ones tiniting the BlurBackground. Instead of the normal Grey, you can now choose the colors in the way you like. \n There are three color filters: One used for light backgrounds, one used for Dark backgrounds and one used for light/dark backgrounds. \n So how are these colors working?? \n Simple, as the titles say, the Light filter will be used for Lighter backgrounds, Dark filter for dark backgrounds and the mixed filter one will be used for backgrounds not too dark but neither too light. \n These colors are used for both BlurBackgrounds: StatusBar one and RecentsApps one </string>
+
+    <string name="blur_expstatus_cat">Expanded StatusBar </string>
+    <string name="blur_notifications_cat">Notifications</string>
+    <string name="blur_qs_cat">Quick Settings</string>
+    <string name="blur_recents_cat">Recent Apps</string> 
+    <string name="blur_colors_cat">Blur Color filters</string>
+    <string name="blur_notices_cat">Notices</string>
+
+    <string name="blurred_scale">Blur Scale</string>
+    <string name="blurred_scale_summary">Quailty of blur image</string>
+
+    <string name="blurred_radius">Blur Radius</string>
+    <string name="blurred_radius_summary">Amount of blur</string>
+
+    <string name="blur_cat_notice">Notice</string>
+    <string name="blur_cat_notice_summary">Blur personlizations are disabled during Keyguard view! Only Translucent Notifications are enabled!</string>
+    
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="color_default">Default</string>
 </resources>
