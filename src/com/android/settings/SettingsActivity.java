@@ -147,6 +147,7 @@ import com.android.settingslib.drawer.Tile;
 import com.android.settings.custom.StatusbarClock;
 import com.android.settings.custom.Traffic;
 import com.android.settings.custom.Blur;
+import com.android.settings.custom.RecentsUI;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -275,6 +276,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.ButtonsSettingsActivity.class.getName(),
             Settings.GesturesSettingsActivity.class.getName(),
             Settings.BlurActivity.class.getName(),
+            Settings.RecentsUIActivity.class.getName(),
             //device_section
             Settings.HomeSettingsActivity.class.getName(),
             Settings.SoundSettingsActivity.class.getName(),
@@ -404,7 +406,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             PieSettings.class.getName(),
             StatusbarClock.class.getName(),
             Traffic.class.getName(),
-            Blur.class.getName()
+            Blur.class.getName(),
+            RecentsUI.class.getName()
     };
 
     private static final String[] LIKE_SHORTCUT_INTENT_ACTION_ARRAY = {
