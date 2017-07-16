@@ -100,7 +100,7 @@ public class RecentsUI extends SettingsPreferenceFragment implements OnPreferenc
             mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
             return true;
         }else if(preference == mRecentsClearAll){
-			boolean bool = (Integer.valueof(newValue) == 0) ? false : true;
+			boolean bool =  (boolean) newValue;
 			Settings.System.putIntForUser(getActivity().getContentResolver(),
                     Settings.System.SHOW_CLEAR_ALL_RECENTS, (bool) ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
