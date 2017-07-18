@@ -51,8 +51,10 @@ public class RecentsUI extends SettingsPreferenceFragment implements OnPreferenc
 
     private static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
     private static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
+    private static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
     private ListPreference mRecentsClearAllLocation;
     private SwitchPreference mRecentsClearAll;
+    private SwitchPreference mRecentsMembar;
 
 
     @Override
@@ -69,7 +71,6 @@ public class RecentsUI extends SettingsPreferenceFragment implements OnPreferenc
         mRecentsClearAll.setChecked(Settings.System.getIntForUser(resolver,
                 Settings.System.SHOW_CLEAR_ALL_RECENTS, 1, UserHandle.USER_CURRENT) != 0);
         mRecentsClearAll.setOnPreferenceChangeListener(this);
-        
         mRecentsClearAllLocation = (ListPreference) findPreference(RECENTS_CLEAR_ALL_LOCATION);
         int location = Settings.System.getIntForUser(resolver,
                 Settings.System.RECENTS_CLEAR_ALL_LOCATION, 3, UserHandle.USER_CURRENT);
@@ -77,6 +78,11 @@ public class RecentsUI extends SettingsPreferenceFragment implements OnPreferenc
         mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntry());
         mRecentsClearAllLocation.setOnPreferenceChangeListener(this);
 
+		//recents membar
+		mRecentsMembar = (SwitchPreference) findPreference(SYSTEMUI_RECENTS_MEM_DISPLAY);
+		mRecentsMembar.setChecked(Settings.System.getIntForUser(resolver,
+                Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 1, UserHandle.USER_CURRENT) == 1);
+		mRecentsMembar.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -100,11 +106,14 @@ public class RecentsUI extends SettingsPreferenceFragment implements OnPreferenc
             mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
             return true;
         }else if(preference == mRecentsClearAll){
-			boolean bool =  (boolean) newValue;
 			Settings.System.putIntForUser(getActivity().getContentResolver(),
-                    Settings.System.SHOW_CLEAR_ALL_RECENTS, (bool) ? 1 : 0, UserHandle.USER_CURRENT);
+                    Settings.System.SHOW_CLEAR_ALL_RECENTS, ((boolean) newValue) ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
-		}	
+		}else if(preference == mRecentsMembar){
+			Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, ((boolean) newValue) ? 1 : 0, UserHandle.USER_CURRENT);
+            return true;
+        }    	
         return false;
     }
 }

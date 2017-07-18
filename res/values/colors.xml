@@ -127,4 +127,7 @@
 
     <!-- Gestures settings -->
     <color name="gestures_setting_background_color">#f5f5f5</color>
+    
+    <!-- Battery charging color -->
+	<color name="system_primary_color">@*android:color/material_blue_grey_900</color>
 </resources>

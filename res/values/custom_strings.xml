@@ -17,12 +17,16 @@
 	<!-- Custom category Name -->
 	<string name="header_category_custom">Customizations</string>
 	
+	<string name="ui_and_ux">UI &amp; UX</string>
+	
+	<string name="ui_category">UI</string>
+	
 	<string name="statusbar_settings_title">Status Bar</string>
 	<string name="blur_settings_title">Blur</string>
 	<string name="traffic_settings_title">Network Traffic</string>
 	
 	<string name="general_category">General</string>
-	<string name="status_bar_category">Status bar</string>
+	<string name="status_bar_category">Status Bar</string>
 	<string name="traffic_category">Traffic indicators</string>
 	
 	<!-- Statusbar Clock options -->
@@ -144,4 +148,30 @@
     <string name="recents_clear_all_location_bottom_right">Bottom right</string>
     <string name="recents_clear_all_location_bottom_left">Bottom left</string>
     <string name="recents_clear_all_location_bottom_center">Bottom center</string>
+    
+    <!-- Recents Membar -->
+    <string name="systemui_recents_mem_display_title">Show Memory Bar</string>
+    <string name="systemui_recents_mem_display_summaryOn">RAM bar enabled</string>
+    <string name="systemui_recents_mem_display_summaryOff">RAM bar disabled</string>
+    
+    <!-- Battery Bar fragment -->
+    <string name="battery_bar_title">Battery bar</string>
+    <string name="battery_bar">Battery bar location</string>
+    <string name="battery_bar_no_navbar">Battery bar location</string>
+    <string name="battery_bar_color">Battery bar color</string>
+    <string name="battery_bar_charging_color">Battery bar charging color</string>
+    <string name="battery_bar_battery_low_color">Battery bar low battery color</string>
+    <string name="battery_bar_cat">Battery bar style</string>
+    <string name="battery_bar_style_title">Battery bar alignment</string>
+    <string name="battery_bar_thickness_title">Battery bar thickness</string>
+    <string name="battery_bar_animate_title">Charging animation</string>
+    <string name="battery_bar_style_regular">Regular</string>
+    <string name="battery_bar_style_center_mirrored">Center-mirrored</string>
+	<string name="battery_bar_style_reversed">Reversed</string>
+	<string name="battery_bar_use_charging_color">Custom charging color</string>
+    <string name="battery_bar_blend_color_title">Blend colors</string>
+    <string name="battery_bar_blend_color_summary">Blend full/empty colors corresponding to battery percentage</string>
+    <string name="battery_bar_blend_color_reverse_title">Reverse color direction</string>
+    <string name="battery_bar_blend_color_reverse_summary_off">Full &#8594; empty: red &#8592; green &#8592; blue &#8592; red</string>
+    <string name="battery_bar_blend_color_reverse_summary_on">Full &#8594; empty: red &#8594; green &#8594; blue &#8594; red</string>
 </resources>
