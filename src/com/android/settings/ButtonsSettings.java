@@ -77,6 +77,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private static final String KEY_APP_SWITCH_DOUBLE_TAP  = "app_switch_key_double_tap";
     private static final String KEY_CAMERA_LONG_PRESS      = "camera_key_long_press";
     private static final String KEY_CAMERA_DOUBLE_TAP      = "camera_key_double_tap";
+    private static final String KEY_ALERT_TOP			   = "keycode_top_position";
+    private static final String KEY_ALERT_MIDDLE           = "keycode_middle_position";
+    private static final String KEY_ALERT_BOTTOM           = "keycode_bottom_position";
 
     private static final String KEY_CATEGORY_HOME          = "home_key";
     private static final String KEY_CATEGORY_BACK          = "back_key";
@@ -84,6 +87,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private static final String KEY_CATEGORY_ASSIST        = "assist_key";
     private static final String KEY_CATEGORY_APP_SWITCH    = "app_switch_key";
     private static final String KEY_CATEGORY_CAMERA        = "camera_key";
+    private static final String KEY_CATEGORY_ALERT_SLIDER  = "alert_slider";
 
     private static final String EMPTY_STRING = "";
 
@@ -105,6 +109,9 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
     private ListPreference mAppSwitchDoubleTapAction;
     private ListPreference mCameraLongPressAction;
     private ListPreference mCameraDoubleTapAction;
+    private ListPreference mAlertTopAction;
+    private ListPreference mAlertMiddleAction;
+    private ListPreference mAlertBottomAction;
 
     private SwitchPreference mNavigationBar;
     private SwitchPreference mSwapNavigationkeys;
@@ -150,17 +157,10 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             mSwapNavigationkeys.setOnPreferenceChangeListener(this);
         }
 
-        /* Swap Slider order */
-        mSwapSliderOrder = (SwitchPreference) findPreference(KEY_SWAP_SLIDER_ORDER);
-        if (mSwapSliderOrder != null) {
-            if (mHasAlertSlider) {
-                mSwapSliderOrder.setOnPreferenceChangeListener(this);
-            } else {
-                mSwapSliderOrder = null;
-                removePreference(KEY_SWAP_SLIDER_ORDER);
-            }
-        }
-
+		if (!mHasAlertSlider) {
+			removePreference(KEY_CATEGORY_ALERT_SLIDER);
+		}
+		
         /* Button Brightness */
         mButtonBrightness = (SwitchPreference) findPreference(KEY_BUTTON_BRIGHTNESS);
         if (mButtonBrightness != null) {
@@ -295,6 +295,27 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
                 defaultDoubleTapOnCameraKeyBehavior,
                 UserHandle.USER_CURRENT);
         mCameraDoubleTapAction = initActionList(KEY_CAMERA_DOUBLE_TAP, doubleTapOnCameraKeyBehavior);
+        
+        /* Alert top action */
+        int alertSliderTopAction = Settings.System.getIntForUser(resolver,
+                Settings.System.ALERT_SLIDER_TOP,
+                0,
+                UserHandle.USER_CURRENT);
+        mAlertTopAction = initActionList(KEY_ALERT_TOP, alertSliderTopAction);
+        
+        /* Alert middle action */
+        int alertSliderMiddleAction = Settings.System.getIntForUser(resolver,
+                Settings.System.ALERT_SLIDER_MIDDLE,
+                2,
+                UserHandle.USER_CURRENT);
+        mAlertMiddleAction = initActionList(KEY_ALERT_MIDDLE, alertSliderMiddleAction);
+        
+        /* Alert bottom action */
+        int alertSliderBottomAction = Settings.System.getIntForUser(resolver,
+                Settings.System.ALERT_SLIDER_BOTTOM,
+                3,
+                UserHandle.USER_CURRENT);
+        mAlertBottomAction = initActionList(KEY_ALERT_BOTTOM, alertSliderBottomAction);
     }
 
     @Override
@@ -403,6 +424,12 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             return Settings.System.KEY_CAMERA_LONG_PRESS_ACTION;
         } else if (preference == mCameraDoubleTapAction) {
             return Settings.System.KEY_CAMERA_DOUBLE_TAP_ACTION;
+        } else if (preference == mAlertTopAction) {
+            return Settings.System.ALERT_SLIDER_TOP;
+        } else if (preference == mAlertMiddleAction) {
+            return Settings.System.ALERT_SLIDER_MIDDLE;
+        } else if (preference == mAlertBottomAction) {
+            return Settings.System.ALERT_SLIDER_BOTTOM;
         }
 
         return EMPTY_STRING;

@@ -17,6 +17,8 @@
 	<!-- Custom category Name -->
 	<string name="header_category_custom">Customizations</string>
 	
+	<string name="ui_settings_summary">Personalize the UI</string>
+	
 	<string name="ui_and_ux">UI &amp; UX</string>
 	
 	<string name="ui_category">UI</string>
@@ -174,4 +176,20 @@
     <string name="battery_bar_blend_color_reverse_title">Reverse color direction</string>
     <string name="battery_bar_blend_color_reverse_summary_off">Full &#8594; empty: red &#8592; green &#8592; blue &#8592; red</string>
     <string name="battery_bar_blend_color_reverse_summary_on">Full &#8594; empty: red &#8594; green &#8594; blue &#8594; red</string>
+
+    <!-- Notification slider -->
+    <string name="notification_slider_category_title">Notification slider</string>
+    <string name="notification_slider_selection_dialog_title">Action</string>
+    <string name="notification_slider_top_position">Top position</string>
+    <string name="notification_slider_ignore_auto_title">Disable during automatic rules</string>
+    <string name="notification_slider_ignore_auto_summary">Ignore the slider when an automatic rule is active</string>
+    <string name="notification_slider_middle_position">Middle position</string>
+    <string name="notification_slider_bottom_position">Bottom position</string>
+    <string name="notification_slider_mode_total_silence">Total silence</string>
+    <string name="notification_slider_mode_alarms_only">Alarms only</string>
+    <string name="notification_slider_mode_priority_only">Priority only</string>
+    <string name="notification_slider_mode_none">None</string>
+    <string name="notification_slider_mode_none">All notifications</string>
+    <string name="notification_slider_mode_vibrate">Vibrate</string>
+    <string name="notification_slider_mode_ring">Ring</string>
 </resources>

@@ -158,29 +158,23 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
 
         addPreferencesFromResource(R.xml.sound_settings);
 
-	mSafeHeadsetVolume = (SwitchPreference) findPreference(KEY_SAFE_HEADSET_VOLUME);
+		mSafeHeadsetVolume = (SwitchPreference) findPreference(KEY_SAFE_HEADSET_VOLUME);
         mSafeHeadsetVolume.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.SAFE_HEADSET_VOLUME, 1) != 0);
         mSafeHeadsetVolume.setOnPreferenceChangeListener(this);
-
 
         initVolumePreference(KEY_MEDIA_VOLUME, AudioManager.STREAM_MUSIC,
                 com.android.internal.R.drawable.ic_audio_media_mute);
         initVolumePreference(KEY_ALARM_VOLUME, AudioManager.STREAM_ALARM,
                 com.android.internal.R.drawable.ic_audio_alarm_mute);
-        mNotificationPreference =
-                initVolumePreference(KEY_NOTIFICATION_VOLUME, AudioManager.STREAM_NOTIFICATION,
-                        com.android.internal.R.drawable.ic_audio_ring_notif_mute);
 
         if (mVoiceCapable) {
             mVolumeLinkNotification = (TwoStatePreference) findPreference(KEY_VOLUME_LINK_NOTIFICATION);
-            mRingPreference =
-                    initVolumePreference(KEY_RING_VOLUME, AudioManager.STREAM_RING,
-                            com.android.internal.R.drawable.ic_audio_ring_notif_mute);
+            mRingPreference = initVolumePreference(KEY_RING_VOLUME, AudioManager.STREAM_RING, com.android.internal.R.drawable.ic_audio_ring_notif_mute);
         } else {
             removePreference(KEY_RING_VOLUME);
             removePreference(KEY_VOLUME_LINK_NOTIFICATION);
-	}
+		}
 
         // Enable link to CMAS app settings depending on the value in config.xml.
         boolean isCellBroadcastAppLinkEnabled = this.getResources().getBoolean(
@@ -200,10 +194,13 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                         UserManager.DISALLOW_CONFIG_CELL_BROADCASTS, UserHandle.myUserId())) {
             removePreference(KEY_CELL_BROADCAST_SETTINGS);
         }
+        
+        mNotificationPreference = initVolumePreference(KEY_NOTIFICATION_VOLUME, AudioManager.STREAM_NOTIFICATION,
+                        com.android.internal.R.drawable.ic_audio_ring_notif_mute);
         initRingtones();
         initVolumeButtonMusicControl();
         initVibrateWhenRinging();
-	initVolumeLinkNotification();
+		initVolumeLinkNotification();
         updateRingerMode();
         updateEffectsSuppressor();
 
@@ -224,7 +221,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
         updateRingPreference();
         updateNotificationPreference();
         updateEffectsSuppressor();
-	updateVolumeLinkNotification();
+		updateVolumeLinkNotification();
         updateVibrateWhenRinging();
         for (VolumeSeekBarPreference volumePref : mVolumePrefs) {
             volumePref.onActivityResume();
@@ -324,7 +321,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
         final int ringerMode = mAudioManager.getRingerModeInternal();
         if (mRingerMode == ringerMode) return;
         mRingerMode = ringerMode;
-	updateRingPreference();
+		updateRingPreference();
         updateNotificationPreference();
     }
   
@@ -346,7 +343,11 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                     mRingerMode == AudioManager.RINGER_MODE_VIBRATE, muted);
             mNotificationPreference.showIcon(iconId);
             if (mVoiceCapable) {
-                mNotificationPreference.setEnabled(mRingerMode == AudioManager.RINGER_MODE_NORMAL);
+				try{	
+					mNotificationPreference.setEnabled(mRingerMode == AudioManager.RINGER_MODE_NORMAL);
+				}catch (IllegalStateException ignored){
+					//ignore
+				}		
             }
         }
     }
@@ -410,7 +411,7 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
             // noop
         }
 
-	@Override
+		@Override
         public void onMuted(int stream, boolean muted, boolean zenMuted) {
             if (stream == AudioManager.STREAM_NOTIFICATION){
                 final boolean linkEnabled = Settings.System.getInt(getContentResolver(),
@@ -794,16 +795,16 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
     };
     
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-	final String key = preference.getKey();
-	if (KEY_SAFE_HEADSET_VOLUME.equals(key)) {
-		if ((Boolean) objValue) {
-			Settings.System.putInt(getContentResolver(),
-        			Settings.System.SAFE_HEADSET_VOLUME, 1);
-		} else {
-			showDialogInner(DLG_SAFE_HEADSET_VOLUME);
+		final String key = preference.getKey();
+		if (KEY_SAFE_HEADSET_VOLUME.equals(key)) {
+			if ((Boolean) objValue) {
+				Settings.System.putInt(getContentResolver(),
+						Settings.System.SAFE_HEADSET_VOLUME, 1);
+			} else {
+				showDialogInner(DLG_SAFE_HEADSET_VOLUME);
+			}
 		}
-    	}
-	return true;
+		return true;
     }
 
     private void showDialogInner(int id) {
