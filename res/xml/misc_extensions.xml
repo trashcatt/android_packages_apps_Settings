@@ -17,27 +17,33 @@
     android:fragment="com.android.settings.custom.MiscExtensions"
 	android:layout="@layout/preference_misc_extensions">
     
-    <SwitchPreference
+    <com.android.settings.custom.preference.SecureSettingSwitchPreference
 		android:key="allow_signature_fake"
         android:title="@string/allow_signature_fake"
         android:summary="@string/allow_signature_fake_summary"
         android:defaultValue="false" />
+        
+    <com.android.settings.custom.preference.SystemSettingSwitchPreference
+		android:key="dnd_when_call"
+		android:title="@string/dnd_when_call_title"
+		android:summary="@string/dnd_when_call_summary"
+		android:defaultValue="true" /> 
 
     <PreferenceCategory
         android:key="incall_vib_options"
         android:title="@string/incall_vibration_category" >
         
-        <SwitchPreference
+        <com.android.settings.custom.preference.SystemSettingSwitchPreference
             android:key="vibrate_on_connect"
             android:title="@string/incall_vibrate_connect_title"
             android:defaultValue="false" />
 
-        <SwitchPreference
+        <com.android.settings.custom.preference.SystemSettingSwitchPreference
             android:key="vibrate_on_callwaiting"
             android:title="@string/incall_vibrate_call_wait_title"
             android:defaultValue="false" />
 
-        <SwitchPreference
+        <com.android.settings.custom.preference.SystemSettingSwitchPreference
             android:key="vibrate_on_disconnect"
             android:title="@string/incall_vibrate_disconnect_title"
             android:defaultValue="false" />

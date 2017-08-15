@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.android.settings.custom.CustomSeekBarPreference;
+import com.android.settings.custom.preference.CustomSeekBarPreference;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class Blur extends SettingsPreferenceFragment

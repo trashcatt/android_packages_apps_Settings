@@ -74,30 +74,6 @@ public class MiscExtensions extends SettingsPreferenceFragment implements OnPref
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
 			prefSet.removePreference(incallVibCategory);
         }
-        
-        mVibOnConnect = (SwitchPreference) findPreference(PREF_VIBRATE_ON_CONNECT);
-        mVibOnConnect.setChecked((Settings.System.getInt(
-                getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.VIBRATE_ON_CONNECT, 0) == 1));
-        mVibOnConnect.setOnPreferenceChangeListener(this);
-        
-        mVibOnWaiting = (SwitchPreference) findPreference(PREF_VIBRATE_ON_CALLWAITING);
-        mVibOnWaiting.setChecked((Settings.System.getInt(
-                getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.VIBRATE_ON_CALLWAITING, 0) == 1));
-        mVibOnWaiting.setOnPreferenceChangeListener(this);
-        
-        mVibOnDisconnect = (SwitchPreference) findPreference(PREF_VIBRATE_ON_DISCONNECT);
-        mVibOnDisconnect.setChecked((Settings.System.getInt(
-                getActivity().getApplicationContext().getContentResolver(),
-                Settings.System.VIBRATE_ON_DISCONNECT, 0) == 1));
-        mVibOnDisconnect.setOnPreferenceChangeListener(this);
-        
-        mSigSpoof = (SwitchPreference) findPreference(PREF_SIG_SPOOF);
-        mSigSpoof.setChecked((Settings.Secure.getInt(
-                getActivity().getApplicationContext().getContentResolver(),
-                Settings.Secure.ALLOW_SIGNATURE_FAKE, 0) == 1));
-        mSigSpoof.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -113,27 +89,6 @@ public class MiscExtensions extends SettingsPreferenceFragment implements OnPref
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mVibOnConnect) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-					Settings.System.VIBRATE_ON_CONNECT,
-					(Boolean) newValue ? 1 : 0);
-            return true;
-        }else if (preference == mVibOnWaiting) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.VIBRATE_ON_CALLWAITING,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
-        }else if (preference == mVibOnDisconnect) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.VIBRATE_ON_DISCONNECT,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
-        }else if (preference == mSigSpoof) {
-            Settings.Secure.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.Secure.ALLOW_SIGNATURE_FAKE,
-                    (Boolean) newValue ? 1 : 0);
-            return true;
-        }
         return false;
     }
 }
