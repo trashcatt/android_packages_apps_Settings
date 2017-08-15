@@ -380,8 +380,13 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
             } else if (newValue instanceof String) {
                 state = Integer.valueOf((String) newValue) != 0;
             }
-            Settings.System.putIntForUser(getContentResolver(), setting, state ? 1 : 0,
-                    UserHandle.USER_CURRENT);
+            if(setting == Settings.Secure.ANBI_ENABLED){
+				Settings.Secure.putIntForUser(getContentResolver(), setting, state ? 1 : 0,
+						UserHandle.USER_CURRENT);
+			}else {
+				Settings.System.putIntForUser(getContentResolver(), setting, state ? 1 : 0,
+						UserHandle.USER_CURRENT);
+			}				
         }
 
         return true;
@@ -399,7 +404,7 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         } else if (preference == mButtonBrightness) {
             return Settings.System.BUTTON_BRIGHTNESS_ENABLED;
         } else if (preference == mAnbiPreference) {
-            return Settings.System.ANBI_ENABLED;
+            return Settings.Secure.ANBI_ENABLED;
         } else if (preference == mHomeLongPressAction) {
             return Settings.System.KEY_HOME_LONG_PRESS_ACTION;
         } else if (preference == mHomeDoubleTapAction) {
@@ -459,8 +464,8 @@ public class ButtonsSettings extends SettingsPreferenceFragment implements
         final boolean buttonBrightnessEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.BUTTON_BRIGHTNESS_ENABLED, 1, UserHandle.USER_CURRENT) != 0;
 
-        final boolean anbiEnabled = Settings.System.getIntForUser(resolver,
-                Settings.System.ANBI_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        final boolean anbiEnabled = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.ANBI_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
 
         if (mNavigationBar != null) {
             mNavigationBar.setChecked(navigationBarEnabled);

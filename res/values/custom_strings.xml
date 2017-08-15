@@ -30,6 +30,7 @@
 	<string name="general_category">General</string>
 	<string name="status_bar_category">Status Bar</string>
 	<string name="traffic_category">Traffic indicators</string>
+	<string name="misc_extensions_title">Misc extensions</string>
 	
 	<!-- Statusbar Clock options -->
     <string name="status_bar_title">Status bar</string>
@@ -192,4 +193,14 @@
     <string name="notification_slider_mode_none">All notifications</string>
     <string name="notification_slider_mode_vibrate">Vibrate</string>
     <string name="notification_slider_mode_ring">Ring</string>
+    
+    <!-- Incall vibrate options -->
+    <string name="incall_vibration_category">In-call vibration options</string>
+    <string name="incall_vibrate_connect_title">Vibrate on connect</string>
+    <string name="incall_vibrate_call_wait_title">Vibrate on call waiting</string>
+    <string name="incall_vibrate_disconnect_title">Vibrate on disconnect</string>
+    
+    <!-- Allow fake signature -->
+    <string name="allow_signature_fake">Allow signature spoofing</string>
+    <string name="allow_signature_fake_summary">Allow apps to bypass security systems by pretending to be a different app.</string>
 </resources>

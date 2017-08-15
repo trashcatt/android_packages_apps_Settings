@@ -81,7 +81,7 @@ public class RecentsUI extends SettingsPreferenceFragment implements OnPreferenc
 		//recents membar
 		mRecentsMembar = (SwitchPreference) findPreference(SYSTEMUI_RECENTS_MEM_DISPLAY);
 		mRecentsMembar.setChecked(Settings.System.getIntForUser(resolver,
-                Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 1, UserHandle.USER_CURRENT) == 1);
+                Settings.System.SYSTEMUI_RECENTS_MEM_DISPLAY, 0, UserHandle.USER_CURRENT) == 1);
 		mRecentsMembar.setOnPreferenceChangeListener(this);
     }
 

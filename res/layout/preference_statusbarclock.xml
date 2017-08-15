@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 AospExtended ROM Project
+<!-- 
+	 Copyright (C) 2014 AospaExtended ROM Project
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -27,7 +28,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:src="@drawable/ic_statusbarclock"
-            android:tint="@color/icon_tint_color"
+            android:tint="?android:attr/colorAccent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />

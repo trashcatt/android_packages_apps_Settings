@@ -35,16 +35,16 @@
         android:summary="@string/swap_navigation_keys_summary"
         android:persistent="false" />
 
-    <!--<SwitchPreference
-        android:key="swap_slider_order"
-        android:title="@string/swap_slider_order_title"
-        android:summary="@string/swap_slider_order_summary"
-        android:persistent="false" />-->
-
     <SwitchPreference
         android:key="button_brightness"
         android:title="@string/hardware_brightness_keys_title"
         android:summary="@string/hardware_brightness_keys_summary"
+        android:persistent="false" />
+        
+    <SwitchPreference
+        android:key="anbi"
+        android:title="@string/anbi_title"
+        android:summary="@string/anbi_summary"
         android:persistent="false" />
         
     <PreferenceCategory
@@ -75,13 +75,7 @@
 			android:entryValues="@array/notification_slider_action_entry_values"
 			android:persistent="false" />
 
-    </PreferenceCategory>    
-
-    <SwitchPreference
-        android:key="anbi"
-        android:title="@string/anbi_title"
-        android:summary="@string/anbi_summary"
-        android:persistent="false" />
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:key="home_key"

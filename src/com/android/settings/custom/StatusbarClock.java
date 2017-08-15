@@ -131,7 +131,7 @@ public class StatusbarClock extends SettingsPreferenceFragment implements OnPref
                 0)));
         mClockDateStyle.setSummary(mClockDateStyle.getEntry());
 
-	mClockDatePosition = (ListPreference) findPreference(PREF_CLOCK_DATE_POSITION);
+		mClockDatePosition = (ListPreference) findPreference(PREF_CLOCK_DATE_POSITION);
         mClockDatePosition.setOnPreferenceChangeListener(this);
         mClockDatePosition.setValue(Integer.toString(Settings.System.getInt(getActivity()
                 .getContentResolver(), Settings.System.STATUSBAR_CLOCK_DATE_POSITION,
@@ -192,11 +192,11 @@ public class StatusbarClock extends SettingsPreferenceFragment implements OnPref
             mClockDateDisplay.setSummary(mClockDateDisplay.getEntries()[index]);
             if (val == 0) {
                 mClockDateStyle.setEnabled(false);
-		mClockDatePosition.setEnabled(false);
+				mClockDatePosition.setEnabled(false);
                 mClockDateFormat.setEnabled(false);
             } else {
                 mClockDateStyle.setEnabled(true);
-		mClockDatePosition.setEnabled(true);
+				mClockDatePosition.setEnabled(true);
                 mClockDateFormat.setEnabled(true);
             }
             return true;
@@ -208,7 +208,7 @@ public class StatusbarClock extends SettingsPreferenceFragment implements OnPref
             mClockDateStyle.setSummary(mClockDateStyle.getEntries()[index]);
             parseClockDateFormats();
             return true;
-	} else if (preference == mClockDatePosition) {
+		} else if (preference == mClockDatePosition) {
             int val = Integer.parseInt((String) newValue);
             int index = mClockDatePosition.findIndexOfValue((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
