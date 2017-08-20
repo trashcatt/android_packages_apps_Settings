@@ -61,7 +61,7 @@
             android:summary="@string/blurred_status_bar_expanded_enabled_pref_summary"
             android:defaultValue="false" />
 
-        <com.android.settings.custom.CustomSeekBarPreference
+        <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="statusbar_blur_scale"
             android:title="@string/blurred_scale"
             android:summary="@string/blurred_scale_summary"
@@ -70,7 +70,7 @@
             android:dependency="blurred_status_bar_expanded_enabled_pref"
             android:defaultValue="10" />
 
-        <com.android.settings.custom.CustomSeekBarPreference
+        <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="statusbar_blur_radius"
             android:title="@string/blurred_radius"
             android:summary="@string/blurred_radius_summary"
@@ -79,23 +79,6 @@
             android:dependency="blurred_status_bar_expanded_enabled_pref"
             android:defaultValue="5" />
     </PreferenceCategory>
-
-    <!--<PreferenceCategory
-        android:key="blur_notifications_cat"
-        android:title="@string/blur_notifications_cat" >   
-        <SwitchPreference
-            android:key="translucent_notifications_pref"
-            android:title="@string/translucent_notifications_pref"
-            android:summary="@string/translucent_notifications_pref_summary"
-            android:defaultValue="false" />
-        <org.aospextended.extensions.preference.CustomSeekBarPreference
-            android:key="notifications_transluency"
-            android:title="@string/transluency_level_universal"
-            settings:max="100"
-            settings:min="0"
-            android:dependency="translucent_notifications_pref"
-            android:defaultValue="60" />
-    </PreferenceCategory>-->
 
     <PreferenceCategory
         android:key="blur_qs_cat"
@@ -107,7 +90,7 @@
             android:summary="@string/translucent_quick_settings_pref_summary"
             android:defaultValue="false" />
 
-        <com.android.settings.custom.CustomSeekBarPreference
+        <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="quick_settings_transluency"
             android:title="@string/transluency_level_universal"
             settings:max="100"
@@ -126,7 +109,7 @@
             android:summary="@string/blurred_recent_app_enabled_pref_summary"
             android:defaultValue="false" />
 
-        <com.android.settings.custom.CustomSeekBarPreference
+        <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="recents_blur_scale"
             android:title="@string/blurred_scale"
             android:summary="@string/blurred_scale_summary"
@@ -135,7 +118,7 @@
             android:dependency="blurred_recent_app_enabled_pref"
             android:defaultValue="6" />
 
-        <com.android.settings.custom.CustomSeekBarPreference
+        <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="recents_blur_radius"
             android:title="@string/blurred_radius"
             android:summary="@string/blurred_radius_summary"
