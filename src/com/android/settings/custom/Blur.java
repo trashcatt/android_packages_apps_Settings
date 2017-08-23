@@ -54,6 +54,7 @@ public class Blur extends SettingsPreferenceFragment
     private SwitchPreference mNotiTrans;
     private SwitchPreference mQuickSett;
     private SwitchPreference mRecentsSett;
+    private SwitchPreference mLockSett;
     
     //Transluency,Radius and Scale
     private CustomSeekBarPreference mScale;
@@ -62,6 +63,8 @@ public class Blur extends SettingsPreferenceFragment
     private CustomSeekBarPreference mRecentsScale;
     private CustomSeekBarPreference mQuickSettPerc;
     private CustomSeekBarPreference mNotSettPerc;
+    private CustomSeekBarPreference mLockRadius;
+    private CustomSeekBarPreference mLockScale;
 
     //Colors
     private ColorPickerPreference mDarkBlurColor;
@@ -112,10 +115,6 @@ public class Blur extends SettingsPreferenceFragment
         mQuickSettPerc.setValue(Settings.System.getInt(resolver, Settings.System.TRANSLUCENT_QUICK_SETTINGS_PRECENTAGE_PREFERENCE_KEY, 60));
         mQuickSettPerc.setOnPreferenceChangeListener(this);
 
-        /*mNotSettPerc = (CustomSeekBarPreference) findPreference("notifications_transluency");
-        mNotSettPerc.setValue(Settings.System.getInt(resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PRECENTAGE_PREFERENCE_KEY, 60));
-        mNotSettPerc.setOnPreferenceChangeListener(this);*/
-
         mRecentsSett = (SwitchPreference) prefSet.findPreference("blurred_recent_app_enabled_pref");
         mRecentsSett.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RECENT_APPS_ENABLED_PREFERENCE_KEY, 0) == 1));
@@ -148,6 +147,16 @@ public class Blur extends SettingsPreferenceFragment
         hexMixedColor = String.format("#%08x", (0xffffffff & intMixedColor));
         mMixedBlurColor.setSummary(hexMixedColor);
         mMixedBlurColor.setNewPreviewColor(intMixedColor);
+        
+        mLockSett = (SwitchPreference) prefSet.findPreference("lockscreen_blur");
+        mLockSett.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.LOCK_BLUR_PREFERENCE_KEY, 0) == 1));
+        
+        mLockScale = (CustomSeekBarPreference) findPreference("lockscreen_blur_scale");
+        mLockScale.setValue(Settings.System.getInt(resolver, Settings.System.LOCK_BLUR_SCALE_PREFERENCE_KEY, 5));
+        
+        mLockRadius = (CustomSeekBarPreference) findPreference("lockscreen_blur_radius");
+        mLockRadius.setValue(Settings.System.getInt(resolver, Settings.System.LOCK_BLUR_RADIUS_PREFERENCE_KEY, 10));
     }
 
     @Override
@@ -178,12 +187,6 @@ public class Blur extends SettingsPreferenceFragment
             Settings.System.putInt(
                 resolver, Settings.System.TRANSLUCENT_QUICK_SETTINGS_PRECENTAGE_PREFERENCE_KEY, value);
             return true;
-        /*} else if (preference == mNotSettPerc) {
-            int value = ((Integer)newValue).intValue();
-            Settings.System.putInt(
-                resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PRECENTAGE_PREFERENCE_KEY, value);
-            return true;
-        }*/
         } else if (preference == mRecentsScale) {
             int value = ((Integer)newValue).intValue();
             Settings.System.putInt(
@@ -240,6 +243,10 @@ public class Blur extends SettingsPreferenceFragment
             boolean enabled = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.RECENT_APPS_ENABLED_PREFERENCE_KEY, enabled ? 1:0); 
+        } else if (preference == mLockSett) {
+            boolean enabled = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.LOCK_BLUR_PREFERENCE_KEY, enabled ? 1:0); 
         }
         return super.onPreferenceTreeClick(preference);
     }

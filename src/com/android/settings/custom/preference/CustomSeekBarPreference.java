@@ -16,6 +16,7 @@
 
 package com.android.settings.custom.preference;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -24,6 +25,7 @@ import android.view.ViewParent;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.provider.Settings;
 import android.support.v7.preference.*;
 
 import com.android.settings.R;
@@ -32,6 +34,8 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
     private final String TAG = getClass().getName();
     private static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
+    private static final String KEY_SCALE = "lockscreen_blur_scale";
+    private static final String KEY_RADIUS = "lockscreen_blur_radius";
     private static final int DEFAULT_VALUE = 50;
 
     private int mMin = 0;
@@ -180,10 +184,17 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
 
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
+		
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
+		ContentResolver resolver = getContext().getContentResolver();
+		if(getKey().equals(KEY_SCALE)){
+			Settings.System.putInt(resolver, Settings.System.LOCK_BLUR_SCALE_PREFERENCE_KEY, mCurrentValue);
+		}else if(getKey().equals(KEY_RADIUS)){
+			Settings.System.putInt(resolver, Settings.System.LOCK_BLUR_RADIUS_PREFERENCE_KEY, mCurrentValue);
+		}
         notifyChanged();
     }
 
