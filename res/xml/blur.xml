@@ -31,12 +31,12 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="blur_light_color"
             android:title="@string/blur_light_color"
-            android:defaultValue="0xff444444" />
+            android:defaultValue="0xff6e6e6e" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="blur_dark_color"
             android:title="@string/blur_dark_color"
-            android:defaultValue="0xffcccccc" />
+            android:defaultValue="0xffffffff" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="blur_mixed_color"
@@ -48,12 +48,6 @@
     <PreferenceCategory
         android:key="blur_expstatus_cat"
         android:title="@string/blur_expstatus_cat" >
-        
-        <Preference
-            style="?android:preferenceInformationStyle"
-            android:title="@string/blur_notice"
-            android:summary="@string/blur_notice_summary"
-            android:selectable="false" />
 
         <SwitchPreference
             android:key="blurred_status_bar_expanded_enabled_pref"
@@ -68,7 +62,7 @@
             settings:max="20"
             settings:min="1"
             android:dependency="blurred_status_bar_expanded_enabled_pref"
-            android:defaultValue="10" />
+            android:defaultValue="8" />
 
         <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="statusbar_blur_radius"
@@ -77,17 +71,13 @@
             settings:max="25"
             settings:min="1"
             android:dependency="blurred_status_bar_expanded_enabled_pref"
-            android:defaultValue="5" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="blur_qs_cat"
-        android:title="@string/blur_qs_cat" >
+            android:defaultValue="20" />
 
         <SwitchPreference
             android:key="translucent_quick_settings_pref"
             android:title="@string/translucent_quick_settings_pref"
             android:summary="@string/translucent_quick_settings_pref_summary"
+            android:dependency="blurred_status_bar_expanded_enabled_pref"
             android:defaultValue="false" />
 
         <com.android.settings.custom.preference.CustomSeekBarPreference
@@ -96,7 +86,7 @@
             settings:max="100"
             settings:min="0"
             android:dependency="translucent_quick_settings_pref"
-            android:defaultValue="60" />
+            android:defaultValue="80" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -116,7 +106,7 @@
             settings:max="20"
             settings:min="1"
             android:dependency="blurred_recent_app_enabled_pref"
-            android:defaultValue="6" />
+            android:defaultValue="8" />
 
         <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="recents_blur_radius"
@@ -125,19 +115,13 @@
             settings:max="25"
             settings:min="1"
             android:dependency="blurred_recent_app_enabled_pref"
-            android:defaultValue="3" />
+            android:defaultValue="20" />
 
     </PreferenceCategory>
     
     <PreferenceCategory
         android:key="blur_lockscreen_cat"
         android:title="@string/blur_lockscreen_cat" >
-        
-        <Preference
-            style="?android:preferenceInformationStyle"
-            android:title="@string/blur_cat_notice"
-            android:summary="@string/lock_blur_notice_summary"
-            android:selectable="false" />
             
         <SwitchPreference
             android:key="lockscreen_blur"
@@ -145,14 +129,14 @@
             android:summary="@string/blur_lockscreen_summary"
             android:defaultValue="false" />
 
-		<com.android.settings.custom.preference.CustomSeekBarPreference
+        <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="lockscreen_blur_scale"
             android:title="@string/blurred_scale"
             android:summary="@string/blurred_scale_summary"
             settings:max="20"
             settings:min="1"
             android:dependency="lockscreen_blur"
-            android:defaultValue="5" />
+            android:defaultValue="8" />
 
         <com.android.settings.custom.preference.CustomSeekBarPreference
             android:key="lockscreen_blur_radius"
@@ -161,7 +145,7 @@
             settings:max="25"
             settings:min="1"
             android:dependency="lockscreen_blur"
-            android:defaultValue="10" />
+            android:defaultValue="20" />
             
     </PreferenceCategory>        
 

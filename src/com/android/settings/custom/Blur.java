@@ -71,9 +71,9 @@ public class Blur extends SettingsPreferenceFragment
     private ColorPickerPreference mLightBlurColor;
     private ColorPickerPreference mMixedBlurColor;
 
-    public static int BLUR_LIGHT_COLOR_PREFERENCE_DEFAULT = Color.DKGRAY;
+    public static int BLUR_LIGHT_COLOR_PREFERENCE_DEFAULT = 0xff6e6e6e;
     public static int BLUR_MIXED_COLOR_PREFERENCE_DEFAULT = Color.GRAY;
-    public static int BLUR_DARK_COLOR_PREFERENCE_DEFAULT = Color.LTGRAY;
+    public static int BLUR_DARK_COLOR_PREFERENCE_DEFAULT = 0xffffffff;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -96,11 +96,11 @@ public class Blur extends SettingsPreferenceFragment
                 Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, 0) == 1));
 
         mScale = (CustomSeekBarPreference) findPreference("statusbar_blur_scale");
-        mScale.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, 10));
+        mScale.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_SCALE_PREFERENCE_KEY, 8));
         mScale.setOnPreferenceChangeListener(this);
 
         mRadius = (CustomSeekBarPreference) findPreference("statusbar_blur_radius");
-        mRadius.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, 5));
+        mRadius.setValue(Settings.System.getInt(resolver, Settings.System.BLUR_RADIUS_PREFERENCE_KEY, 20));
         mRadius.setOnPreferenceChangeListener(this);
 
         /*mNotiTrans = (SwitchPreference) prefSet.findPreference("translucent_notifications_pref");
@@ -112,7 +112,7 @@ public class Blur extends SettingsPreferenceFragment
                 Settings.System.TRANSLUCENT_QUICK_SETTINGS_PREFERENCE_KEY, 0) == 1));
 
         mQuickSettPerc = (CustomSeekBarPreference) findPreference("quick_settings_transluency");
-        mQuickSettPerc.setValue(Settings.System.getInt(resolver, Settings.System.TRANSLUCENT_QUICK_SETTINGS_PRECENTAGE_PREFERENCE_KEY, 60));
+        mQuickSettPerc.setValue(Settings.System.getInt(resolver, Settings.System.TRANSLUCENT_QUICK_SETTINGS_PRECENTAGE_PREFERENCE_KEY, 80));
         mQuickSettPerc.setOnPreferenceChangeListener(this);
 
         mRecentsSett = (SwitchPreference) prefSet.findPreference("blurred_recent_app_enabled_pref");
@@ -120,11 +120,11 @@ public class Blur extends SettingsPreferenceFragment
                 Settings.System.RECENT_APPS_ENABLED_PREFERENCE_KEY, 0) == 1));
 
         mRecentsScale = (CustomSeekBarPreference) findPreference("recents_blur_scale");
-        mRecentsScale.setValue(Settings.System.getInt(resolver, Settings.System.RECENT_APPS_SCALE_PREFERENCE_KEY, 6));
+        mRecentsScale.setValue(Settings.System.getInt(resolver, Settings.System.RECENT_APPS_SCALE_PREFERENCE_KEY, 8));
         mRecentsScale.setOnPreferenceChangeListener(this);
 
         mRecentsRadius = (CustomSeekBarPreference) findPreference("recents_blur_radius");
-        mRecentsRadius.setValue(Settings.System.getInt(resolver, Settings.System.RECENT_APPS_RADIUS_PREFERENCE_KEY, 3));
+        mRecentsRadius.setValue(Settings.System.getInt(resolver, Settings.System.RECENT_APPS_RADIUS_PREFERENCE_KEY, 20));
         mRecentsRadius.setOnPreferenceChangeListener(this);
 
         mLightBlurColor = (ColorPickerPreference) findPreference("blur_light_color");
@@ -153,10 +153,10 @@ public class Blur extends SettingsPreferenceFragment
                 Settings.System.LOCK_BLUR_PREFERENCE_KEY, 0) == 1));
         
         mLockScale = (CustomSeekBarPreference) findPreference("lockscreen_blur_scale");
-        mLockScale.setValue(Settings.System.getInt(resolver, Settings.System.LOCK_BLUR_SCALE_PREFERENCE_KEY, 5));
+        mLockScale.setValue(Settings.System.getInt(resolver, Settings.System.LOCK_BLUR_SCALE_PREFERENCE_KEY, 8));
         
         mLockRadius = (CustomSeekBarPreference) findPreference("lockscreen_blur_radius");
-        mLockRadius.setValue(Settings.System.getInt(resolver, Settings.System.LOCK_BLUR_RADIUS_PREFERENCE_KEY, 10));
+        mLockRadius.setValue(Settings.System.getInt(resolver, Settings.System.LOCK_BLUR_RADIUS_PREFERENCE_KEY, 20));
     }
 
     @Override
