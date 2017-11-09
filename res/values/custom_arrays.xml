@@ -199,14 +199,14 @@
     </string-array>
 
     <string-array name="battery_bar_thickness_values" translatable="false">
-       <item>1</item>
+        <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
-	</string-array>
-	
-	<!-- Notification Slider -->
-	<string-array name="notification_slider_action_entries" translatable="false">
+    </string-array>
+
+    <!-- Notification Slider -->
+    <string-array name="notification_slider_action_entries" translatable="false">
         <item>@string/notification_slider_mode_total_silence</item>
         <item>@string/notification_slider_mode_alarms_only</item>
         <item>@string/notification_slider_mode_priority_only</item>
@@ -223,4 +223,59 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+    
+    <!-- Screen Stabilization -->
+    <string-array name="stabilization_velocity_friction_entries" translatable="false">
+        <item>0.01x</item>
+        <item>0.05x</item>
+        <item>0.1x</item>
+        <item>0.2x(Default)</item>
+        <item>0.3x</item>
+        <item>0.4x</item>
+    </string-array>
+
+    <string-array name="stabilization_velocity_friction_entry_values" translatable="false">
+        <item>0.01</item>
+        <item>0.05</item>
+        <item>0.1</item>
+        <item>0.2</item>
+        <item>0.3</item>
+        <item>0.4</item>
+        
+    </string-array><string-array name="stabilization_position_friction_entries" translatable="false">
+        <item>0.01x</item>
+        <item>0.05x</item>
+        <item>0.1x(Default)</item>
+        <item>0.2x</item>
+        <item>0.3x</item>
+        <item>0.4x</item>
+    </string-array>
+
+    <string-array name="stabilization_position_friction_values" translatable="false">
+        <item>0.01</item>
+        <item>0.05</item>
+        <item>0.1</item>
+        <item>0.2</item>
+        <item>0.3</item>
+        <item>0.4</item>
+    </string-array>
+    
+    <string-array name="stabilization_velocity_amplitude_entries" translatable="false">
+        <item>0.5x</item>
+        <item>0.75x</item>
+        <item>1x(Default)</item>
+        <item>1.25x</item>
+        <item>1.5x</item>
+        <item>2x</item>
+    </string-array>
+
+    <string-array name="stabilization_velocity_amplitude_values" translatable="false">
+        <item>4000</item>
+        <item>6000</item>
+        <item>8000</item>
+        <item>10000</item>
+        <item>12000</item>
+        <item>16000</item>
+    </string-array>
+    
 </resources>

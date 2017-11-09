@@ -27,8 +27,8 @@
             android:fragment="com.android.settings.custom.StatusbarClock"
             android:layout="@layout/preference_statusbarclock"
             android:title="@string/status_bar_clock" />
-			
-		<PreferenceScreen
+
+	<PreferenceScreen
             android:key="traffic"
             android:fragment="com.android.settings.custom.Traffic"
             android:layout="@layout/preference_traffic"
@@ -37,8 +37,8 @@
         <PreferenceScreen
             android:title="@string/battery_bar_title"
             android:layout="@layout/preference_batterybar"
-			android:key="batterybar"
-			android:fragment="com.android.settings.custom.BatteryBar" />
+	    android:key="batterybar"
+	    android:fragment="com.android.settings.custom.BatteryBar" />
 
     </PreferenceCategory>
     
@@ -46,26 +46,29 @@
         android:key="ui_category"
         android:title="@string/ui_category">
 
-		<PreferenceScreen
-			android:key="recents_ui"
-			android:title="@string/recents_ui_title"
-			android:layout="@layout/preference_recents_ui"
-			android:fragment="com.android.settings.custom.RecentsUI" />
-			
-		<PreferenceScreen
-			android:key="blur"
-			android:fragment="com.android.settings.custom.Blur"
-			android:layout="@layout/preference_blur"
-			android:title="@string/settings_blur_cat" />
-			
-		<PreferenceScreen
-			android:key="misc_extensions"
-			android:fragment="com.android.settings.custom.MiscExtensions"
-			android:layout="@layout/preference_misc_extensions"
-			android:title="@string/misc_extensions_title" />
+	    <PreferenceScreen
+		android:key="recents_ui"
+		android:title="@string/recents_ui_title"
+		android:layout="@layout/preference_recents_ui"
+		android:fragment="com.android.settings.custom.RecentsUI" />
+		    
+	    <PreferenceScreen
+		android:key="blur"
+		android:fragment="com.android.settings.custom.Blur"
+		android:layout="@layout/preference_blur"
+		android:title="@string/settings_blur_cat" />
+		    
+	    <PreferenceScreen
+		android:key="misc_extensions"
+		android:fragment="com.android.settings.custom.MiscExtensions"
+		android:layout="@layout/preference_misc_extensions"
+		android:title="@string/misc_extensions_title" />
+	    
+	    <PreferenceScreen
+		android:key="screen_stabilization"
+		android:title="@string/screen_stabilization_title"
+		android:layout="@layout/preference_stabilization"
+		android:fragment="com.android.settings.custom.ScreenStabilization" />
 
     </PreferenceCategory>
-    
-    
-
 </PreferenceScreen>

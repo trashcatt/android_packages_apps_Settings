@@ -174,5 +174,6 @@ public class Settings extends SettingsActivity {
     
     // Extensions
     public static class UIActivity extends SettingsActivity { /* empty */ }
+    public static class ScreenStabilizationActivity extends SettingsActivity { /* empty */ }
 
 }

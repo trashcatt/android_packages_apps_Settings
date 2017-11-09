@@ -145,6 +145,7 @@ import com.android.settingslib.drawer.SettingsDrawerActivity;
 import com.android.settingslib.drawer.Tile;
 
 import com.android.settings.custom.UI;
+import com.android.settings.custom.ScreenStabilization;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -270,6 +271,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.ButtonsSettingsActivity.class.getName(),
             Settings.GesturesSettingsActivity.class.getName(),
             Settings.UIActivity.class.getName(),
+            Settings.ScreenStabilizationActivity.class.getName(),
             //device_section
             Settings.HomeSettingsActivity.class.getName(),
             Settings.SoundSettingsActivity.class.getName(),
@@ -396,7 +398,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             ButtonsSettings.class.getName(),
             GesturesSettings.class.getName(),
             PieSettings.class.getName(),
-            UI.class.getName()
+            UI.class.getName(),
+            ScreenStabilization.class.getName()
     };
 
     private static final String[] LIKE_SHORTCUT_INTENT_ACTION_ARRAY = {
