@@ -16,8 +16,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="blur"
     android:fragment="com.android.settings.custom.Blur"
-	android:layout="@layout/preference_blur"
+    android:layout="@layout/preference_blur"
     android:title="@string/settings_blur_cat">
+    
     <PreferenceCategory
         android:key="blur_colors_cat"
         android:title="@string/blur_colors_cat">
